@@ -1,0 +1,127 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+@import "./bourbon/bourbon";
+@import "./neat/neat"; 
+
+@include font-face(NeoSansIntel, "../fonts/NeoSansIntel");
+
+body {
+	@include outer-container(100%);
+	@include background(linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.0)), url("blue-grid.jpg"));
+	@include pad(0);
+	margin: 0;
+		
+	header {
+		/*@include fill-parent();*/
+		@include span-columns(12);
+		background-color: #4B4BDC;
+		box-shadow: 0px 1px 16px 3px #316388;
+		
+		.albumName {
+			font-family: 'NeoSansIntel';
+			color: #FFFF00;
+			text-align: center;
+		}
+	}
+
+	@row(table);
+	.viewer {
+		@include span-columns(10 of 12);
+		@include shift(1);
+		@include background(linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), url("test_images/image_2.jpg") center no-repeat);
+		background-size: cover;
+		height: 680px;
+		padding-top: 10px;
+
+		.left {
+			@include span-columns(1 of 10);
+			@include shift(1.5 of 10);
+			@include omega();
+			margin-top: 210px;
+			border: 2px solid black;
+			display: inline-block;
+			padding: 10px 10px 10px 5px;
+			background-color: rgba(255, 255, 255, 0.6);
+			box-shadow: 0px 1px 16px 3px #A9A9A9;
+
+		}
+
+		.indImg {
+			@include span-columns(5 of 10);
+			@include shift(1.6 of 10);
+			@include omega;
+			position: absolute;
+
+			.big {
+				@include span-columns(10 of 10);
+				border: 1px solid #FFFFFF;
+				box-shadow: 0px 1px 16px 3px #A9A9A9;
+			}
+			
+			.info {
+					color: #FFFF00;
+					text-align: center;
+					font-family: 'NeoSansIntel';
+
+				.imgTitle {
+					font-size: 25px;
+				}
+
+				.imgInfo {
+					color: #FFFF00;
+					text-align: center;
+					font-family: 'NeoSansIntel';
+					font-size: 20px;
+				}
+			}
+		}
+
+		.right {
+			@include span-columns(1 of 10);
+			@include shift(5.15 of 10);
+			@include omega;
+			margin-top: 210px;
+			border: 2px solid black;
+			display: inline-block;
+			padding: 10px 10px 10px 30px;
+			background-color: rgba(255, 255, 255, 0.6);
+			box-shadow: 0px 1px 16px 3px #A9A9A9;
+		}
+	}
+
+	.thumbs {
+		@include shift(3);
+		@include span-columns(6);
+		margin-top: 10px;
+
+		.indThu {
+			@include span-columns(2);
+			@include omega(6n);
+							
+			.small {
+				height: 60px;	
+				box-shadow: 0px 1px 16px 3px #90BEDF;
+			}
+
+			.opaque{
+				opacity: 0.4;
+			}
+		}
+	}
+}
+
+	
+

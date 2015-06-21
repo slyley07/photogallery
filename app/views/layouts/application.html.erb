@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+  	Razorfish
+  </title>
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+	<header>
+		<h1 class="albumName">
+			<%= @album["name"] %>
+		</h1>
+	</header>
+
+	<%= yield %>
+
+	</body>
+</html>
