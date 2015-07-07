@@ -43,6 +43,31 @@ $(document).ready(function(){
 								small: ".small.6"
 							};
 
+	// assign all images to an array
+	var imgs = ["adventure.png", "avatar.jpg", "bravest.png", "gravity.png", "regular.jpg", "steven.png"]
+
+$(".right").click(function(){
+	for (var i = 0; i < imgs.length; i++) {
+		// var x = document.getElementById("indImg");
+		var y = '<img src="assets/' + imgs[i] + '" class="big">'
+		if ($('#indImg').is(':visible')) {
+			i++;
+			// continue;
+			// console.log(x);
+			console.log(y);
+			document.getElementById("indImg").innerHTML = '<img src="assets/' + imgs[i] + '" class="big">';
+			break;
+			console.log(i);
+			continue;
+		}
+		// else if (y === x) {
+		// 	document.getElementById("indImg").innerHTML = '<img src="assets/' + imgs[i] + '" class="big">';
+		// 	break;
+		// };
+		// continue;
+	};
+})
+
 	// assign all objects to an array and find its length
 	var images = [img1, img2, img3, img4, img5, img6];
 	var imgLeng = images.length;
@@ -88,7 +113,7 @@ $(document).ready(function(){
 				noOpacity(notOpaque);
 			} else {
 				fadeOut(images[m]);
-				opacity(images[m]);	
+				opacity(images[m]);
 			};
 		};
 	};
@@ -97,56 +122,56 @@ $(document).ready(function(){
 	function clicker(show) {
 		$(show.small).click(function(){
 			// calling the noOpacity function on the clicked object
-			noOpacity(show)		
+			noOpacity(show)
 			// calling the opaqThumb function on the clicked object
 			opaqThumb(show);
 		});
 	};
 
 	// function for moving one forward in the array
-	$('.right').click(function(){
-		// looping through all of the objects
-		for (var y = 0; y < imgLeng; y++) {
-			// logic for figuring out which object is visible
-			if ($(images[y].big.image).is(':visible')){
-				// logic for returning to the first object if the left button is clicked on the last object
-				if (images[y] !== images[imgLeng -1]){
-					fadeIn(images[y + 1]);
-					noOpacity(images[y + 1]);
-					fadeOut(images[y]);
-					opacity(images[y]);
-					break;
-				} else {
-					fadeIn(images[0]);
-					noOpacity(images[0]);
-					fadeOut(images[y]);
-					opacity(images[y]);
-				};
-			};
-		};
-	});
-
-	//function for moving one back in the array
-	$('.left').click(function(){
-		for (var z = 0; z < imgLeng + 1; z++) {
-			if ($(images[z].big.image).is(':visible')) {
-				//logic for returning to the last object if the left button is clicked on the first object
-				if (images[z] === images[0]){
-					fadeIn(images[imgLeng - 1]);
-					noOpacity(images[imgLeng - 1]);
-					fadeOut(images[z]);
-					opacity(images[z]);
-					break;
-				} else {
-					fadeIn(images[z - 1]);
-					noOpacity(images[z - 1]);
-					fadeOut(images[z]);
-					opacity(images[z]);
-					break;
-				};
-			};
-		};
-	});
+	// $('.right').click(function(){
+	// 	// looping through all of the objects
+	// 	for (var y = 0; y < imgLeng; y++) {
+	// 		// logic for figuring out which object is visible
+	// 		if ($(images[y].big.image).is(':visible')){
+	// 			// logic for returning to the first object if the left button is clicked on the last object
+	// 			if (images[y] !== images[imgLeng -1]){
+	// 				fadeIn(images[y + 1]);
+	// 				noOpacity(images[y + 1]);
+	// 				fadeOut(images[y]);
+	// 				opacity(images[y]);
+	// 				break;
+	// 			} else {
+	// 				fadeIn(images[0]);
+	// 				noOpacity(images[0]);
+	// 				fadeOut(images[y]);
+	// 				opacity(images[y]);
+	// 			};
+	// 		};
+	// 	};
+	// });
+	//
+	// //function for moving one back in the array
+	// $('.left').click(function(){
+	// 	for (var z = 0; z < imgLeng + 1; z++) {
+	// 		if ($(images[z].big.image).is(':visible')) {
+	// 			//logic for returning to the last object if the left button is clicked on the first object
+	// 			if (images[z] === images[0]){
+	// 				fadeIn(images[imgLeng - 1]);
+	// 				noOpacity(images[imgLeng - 1]);
+	// 				fadeOut(images[z]);
+	// 				opacity(images[z]);
+	// 				break;
+	// 			} else {
+	// 				fadeIn(images[z - 1]);
+	// 				noOpacity(images[z - 1]);
+	// 				fadeOut(images[z]);
+	// 				opacity(images[z]);
+	// 				break;
+	// 			};
+	// 		};
+	// 	};
+	// });
 
 	// hide the images and image info from the start
 	// the default position is the first image
@@ -159,14 +184,14 @@ $(document).ready(function(){
 		// add opacity to the thumbs from the start
 		opacity(images[i]);
 	};
-	
+
 	// the first image is highlighted by default
 	$(images[0].small).css('height', '80px');
 
 	// logic allowing a thumb to only be clicked when its image isn't showing
 	for (var r = 0; r < imgLeng; r++){
 		if ($(images[r]).length) {
-			// calling the clicker function 
+			// calling the clicker function
 			clicker(images[r]);
 		};
 	};
