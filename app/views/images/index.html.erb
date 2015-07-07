@@ -1,22 +1,23 @@
 <div class="viewer">
-			<div class="left">
-				<img src="/assets/caret-left-8x.png">
-			</div>
-	<% @images.each do |image| %>
-		<div class="indImg">
-			
-			<%= image_tag(image.url, class: :"big #{image.id}") %>
-			
-			<div class="info">
-				<%= content_tag(:div, content_tag(:p, "#{image.title}", class: :"title #{image.id}"), class: "imgTitle") %>
+	<div class="left">
+		<img src="/assets/caret-left-8x.png">
+	</div>
 
-				<%= content_tag(:div, content_tag(:p, "Taken at #{image.location} on #{image.date}", class: :"info #{image.id}"), class: :imgInfo) %>
-			</div>
+	<div id="indImg">
+		<img src="assets/adventure.png" class="big"> 
+	</div>
+
+	<div class="info">
+		<div class="imgTitle">
+			<p class="1">
+				Adventure
+			</p>
 		</div>
-	<% end %>
-			<div class="right">
-				<img src="/assets/caret-right-8x.png">
-			</div>
+	</div>
+
+	<div class="right">
+		<img src="/assets/caret-right-8x.png">
+	</div>
 </div>
 
 <br>
